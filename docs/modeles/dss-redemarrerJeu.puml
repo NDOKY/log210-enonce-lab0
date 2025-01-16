@@ -1,1 +1,19 @@
 // Vous devez compléter ce fichier
+@startuml
+skinparam style strictuml
+skinparam backgroundcolor transparent
+skinparam defaultfontname xkcd Script
+skinparam handwritten true
+scale 1
+
+actor ":Joueur" as j
+participant ":Système" as s
+
+title DSS pour le scénario Redémarrer
+
+j->s : redémarrerJeu()
+
+
+
+
+@enduml

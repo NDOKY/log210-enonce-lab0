@@ -1,1 +1,29 @@
 // Vous devez complétéer ce fichier
+
+@startuml
+skinparam style strictuml
+skinparam backgroundcolor transparent
+skinparam defaultfontname xkcd Script
+skinparam handwritten true
+scale 1
+
+title RDCU pour redémarrerJeu
+
+participant ":JeuDeDes" as jdd
+participant "joueurs: \nMap<String, Joueur>" as tj
+
+->jdd : redemarrerJeu()
+note left
+selon Controleur
+(JeuDeDés est 
+l'objet racine)
+end note
+
+jdd ->tj : clear()
+note right
+selon Expert
+end note
+
+
+
+@enduml

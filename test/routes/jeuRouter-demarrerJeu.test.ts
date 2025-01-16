@@ -49,3 +49,7 @@ describe('GET /api/v1/jeu/demarrerJeu/:id', () => {
     });
 
 });
+
+describe('GET /api/v1/jeu/redemarrerJeu', () =>{
+
+});
