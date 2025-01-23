@@ -4,6 +4,7 @@ import logger from 'morgan';
 import flash from 'express-flash-plus';
 
 import { jeuRoutes } from './routes/jeuRouter';
+import { Joueur } from './core/joueur';
 
 // Creates and configures an ExpressJS web server.
 class App {
@@ -60,7 +61,13 @@ class App {
     });
 
     // Route pour classement (stats)
+    
     router.get('/stats', (req, res, next) => {
+      const joueurs: Array<Joueur> = JSON.parse(jeuRoutes.controleurJeu.joueurs);
+      joueurs.forEach(function (element) {
+        element.ratio = element.lancers/element.lancersGagnes;
+      });
+      const joueursAvecRatio = joueurs;
       res.render('stats',
         // passer objet au gabarit (template) Pug
         {
@@ -70,6 +77,8 @@ class App {
           joueurs: JSON.parse(jeuRoutes.controleurJeu.joueurs)
         });
     });
+
+    
 
     // Route to login
     router.get('/signin', async function (req, res) {

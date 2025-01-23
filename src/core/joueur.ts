@@ -1,3 +1,4 @@
+import { jeuRoutes } from '../routes/jeuRouter';
 import { InvalidParameterError } from './errors/invalidParameterError';
 
 export class Joueur {
@@ -5,11 +6,17 @@ export class Joueur {
     private _nom: string;
     private _nbLancers: number;
     private _nbLancersGagnes: number;
+    private _ratio: number;
+
+    public set ratio(value: number) {
+        this._ratio = value;
+    }
 
     constructor(nom: string) {
         this._nom = this.assainirNom(nom);
         this._nbLancers = 0;
         this._nbLancersGagnes = 0;
+        this._ratio = 0;
     }
 
     get nom() {
@@ -39,6 +46,9 @@ export class Joueur {
     get lancersGagnes() {
         return this._nbLancersGagnes;
     }
+    get ratio() {
+        return this._ratio;
+    }
 
     public lancer() {
         this._nbLancers++;
@@ -52,7 +62,10 @@ export class Joueur {
         return {
             nom: this.nom,
             lancers: this.lancers,
-            lancersGagnes: this.lancersGagnes
+            lancersGagnes: this.lancersGagnes,
+            ratio: this.ratio
         };
     }
+
+    
 }
