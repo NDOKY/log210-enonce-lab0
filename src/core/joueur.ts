@@ -8,9 +8,7 @@ export class Joueur {
     private _nbLancersGagnes: number;
     private _ratio: number;
 
-    public set ratio(value: number) {
-        this._ratio = value;
-    }
+    
 
     constructor(nom: string) {
         this._nom = this.assainirNom(nom);
@@ -56,6 +54,9 @@ export class Joueur {
 
     public gagner() {
         this._nbLancersGagnes++;
+    }
+    public set ratio(value: number) {
+        this._ratio = value;
     }
 
     public toJSON() {
